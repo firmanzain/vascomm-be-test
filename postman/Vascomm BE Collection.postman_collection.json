@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "1afcc507-c75a-4719-b2cf-bba79ebb1ce0",
+		"name": "Vascomm BE Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3770306",
+		"_collection_link": "https://speeding-rocket-342033.postman.co/workspace/My-Workspace~2b747063-5ee6-4e1d-8804-cd403372e957/collection/3770306-1afcc507-c75a-4719-b2cf-bba79ebb1ce0?action=share&creator=3770306&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/v1/admins/customers",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"v1",
+										"admins",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customer_id\": 1,\n    \"status\": \"approved\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/v1/admins/customers/update-status",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"v1",
+										"admins",
+										"customers",
+										"update-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.data.accessToken);",
+									"pm.collectionVariables.set(\"token\", jsonData.data.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"superadmin\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/v1/admins/login",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"v1",
+								"admins",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.data.accessToken);",
+									"pm.collectionVariables.set(\"token\", jsonData.data.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"firmanzainf@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/v1/customers/login",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/v1/banners/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"v1",
+						"banners",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/v1/products/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"v1",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
