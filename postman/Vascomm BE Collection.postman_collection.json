@@ -203,6 +203,61 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Customer 1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "customer1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/Users/firman/Downloads/default.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/v1/customers/register",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"register"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -243,6 +298,12 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
 		}
 	]
 }

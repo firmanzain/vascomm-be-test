@@ -46,9 +46,15 @@ const getUserByEmail = async(email) => {
     return Customer.findOne(option);
 }
 
+const insertData = async (body) => {
+    const result = await Customer.create(body);
+    return result;
+};
+
 module.exports = {
     getAll,
     getUserById,
     updateStatus,
     getUserByEmail,
+    insertData,
 }

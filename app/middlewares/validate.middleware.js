@@ -15,7 +15,6 @@ const validate = (schema) => (req, res, next) => {
 			let message = details.message.split(" ")
 			errorResult[message[0]] = message[1]
 		});
-		console.log("===errorMessage", error);
 		return next(badRequestResponse(res, errorResult));
     }
 	
